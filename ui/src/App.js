@@ -47,14 +47,14 @@ function App() {
 
   const copyToClipboard = function() {
     const textArea = document.createElement("textarea");
-    textArea.value = `City: ${cityName}, Latitude" ${latitude}, Longitude: ${longitude}`;
+    textArea.value = `City: ${cityName}, Latitude: ${latitude}, Longitude: ${longitude}`;
     document.body.appendChild(textArea);
     textArea.setSelectionRange(0, 99999);
     textArea.select();
     const success = document.execCommand("copy");
     textArea.remove();
     if(success) {
-      setStatus(`Successfully Copied to Clipboard - "City: ${cityName}, Latitude: ${latitude}, Longitude: ${longitude}"`);
+      setStatus(`Successfully Copied to Clipboard - "${textArea.value}"`);
     }
   }
 
